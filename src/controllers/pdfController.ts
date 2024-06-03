@@ -18,7 +18,7 @@ export const generatePDF = async (req: AuthenticatedRequest, res: Response) => {
     }
 
     const browser = await puppeteer.launch({
-       executablePath: '/usr/bin/chromium-browser',
+       executablePath: 'C:\\Program Files\\Chromium\\Application\\chrome.exe',
       args: ['--no-sandbox', '--disable-setuid-sandbox'], // For environments with sandboxing issues
       headless: true,
       timeout: 60000, // Increase timeout to 60 seconds
