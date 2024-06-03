@@ -16,7 +16,7 @@ export const generatePDF = async (req: AuthenticatedRequest, res: Response) => {
     if (!user) {
       return res.status(400).json({ msg: 'User not found' });
     }
- const chromePath = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe';
+ const chromePath = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe';
     const browser = await puppeteer.launch({
       headless:true, 
       executablePath: chromePath,
