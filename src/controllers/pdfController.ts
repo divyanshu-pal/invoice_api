@@ -16,9 +16,9 @@ export const generatePDF = async (req: AuthenticatedRequest, res: Response) => {
     if (!user) {
       return res.status(400).json({ msg: 'User not found' });
     }
- const chromePath = 'C:\\Chromium\\chrome.exe';
+ const chromePath = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe';
     const browser = await puppeteer.launch({
-      headless:false, 
+      headless:true, 
       executablePath: chromePath,
       args: ['--no-sandbox', '--disable-setuid-sandbox'], // For environments with sandboxing issues
      
