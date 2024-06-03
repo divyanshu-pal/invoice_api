@@ -14,11 +14,24 @@ const app = express();
  connectDB();
 
 // // Init Middleware
-app.use(cors({
-    origin:'https://invoice-psi-seven.vercel.app/generate-pdf',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+const allowedOrigins = [
+  'https://invoice-psi-seven.vercel.app',
+  'https://invoice-api-31x7.onrender.com'
+];
+
+const corsOptions = {
+  origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // // Define Routes
