@@ -18,7 +18,9 @@ export const generatePDF = async (req: AuthenticatedRequest, res: Response) => {
     }
 
     const browser = await puppeteer.launch({
+       executablePath: '/usr/bin/google-chrome-stable',
       args: ['--no-sandbox', '--disable-setuid-sandbox'], // For environments with sandboxing issues
+      headless: true,
       timeout: 60000, // Increase timeout to 60 seconds
     });
     const page = await browser.newPage();
