@@ -14,11 +14,7 @@ const app = express();
  connectDB();
 
 // // Init Middleware
-app.use(cors({
-    origin:'https://invoice-psi-seven.vercel.app/generate-pdf',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+
 app.use(express.json());
 
 // // Define Routes
