@@ -20,7 +20,7 @@ app.use(express.json());
 // // Define Routes
  app.use('/api/auth',userRoutes);
  app.use('/api/products', productRoutes);
- app.use('/api/pdf', pdfGenerate);
+ app.use('/api/auth', pdfGenerate);
 
 const PORT = process.env.PORT || 5000;
 
