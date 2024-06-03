@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // // Define Routes
- app.use('/api/users',userRoutes);
+ app.use('/api/auth',userRoutes);
  app.use('/api/products', productRoutes);
  app.use('/api/pdf', pdfGenerate);
 
